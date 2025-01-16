@@ -1,8 +1,10 @@
 'use client'
 import Link from 'next/link'
 import React, { useState } from 'react'
-import { ChevronDown, X, Menu } from 'lucide-react'
 
+import { ChevronDown } from 'lucide-react'
+
+import AnimatedMenuIcon from '@/components/animated/AnimatedMenuIcon'
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [expandedItems, setExpandedItems] = useState({})
@@ -16,52 +18,44 @@ const Navbar = () => {
   }
 
   const menuItems = {
-    บริการของอีโวลท์: [
-      'บริการติดตั้งแบบครบวงจร',
-      'บริการเครื่องชาร์จ',
-      'บริการแพลตฟอร์มและแอปพลิเคชั่น',
-      'บริการให้คำปรึกษาจากวิศวกร',
+    HOME: [],
+    SERVICES: [
+      'TURNKEY SOLUTION',
+      'SUPPLY',
+      'PLATFORM & APPLICATION',
+      'AFTER SALES SERVICE',
     ],
-    'ผู้ใช้งานรถ EV': [],
-    เกี่ยวกับอีโวลท์: [],
-    ติดต่อเรา: [],
+    'ABOUT MOCK': [
+      'CAREER',
+      'NEWS'
+    ],
+    CONTACT: [],
   }
 
   return (
-    <nav className="bg-white shadow-lg">
-      <div className="max-w-6xl mx-auto px-4">
+    <nav className="relative bg-white shadow-lg min-h-24">
+      <div className="max-w-6xl mx-auto p-4">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link href="/">
-              <img src="https://placehold.co/60x40" alt="logo" className="h-8" />
+              {/* <img src="https://placehold.co/150x60" alt="logo" /> */}
+              <p className='text-5xl uppercase'>mock</p>
             </Link>
           </div>
+          <AnimatedMenuIcon isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} />
 
-          {/* Mobile menu button */}
-          <div className="md:hidden">
-            <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-all duration-200"
-            >
-              {isMenuOpen ? (
-                <X className="h-6 w-6 transform rotate-180 transition-transform duration-300" />
-              ) : (
-                <Menu className="h-6 w-6 transition-transform duration-300" />
-              )}
-            </button>
-          </div>
         </div>
       </div>
 
-      {/* Mobile menu */}
+      {/* Mobile menu Expanded*/}
       <div
         className={`
-          absolute top-16 right-0 w-full bg-white shadow-lg
-          transition-all duration-300 ease-in-out
-          ${isMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2 pointer-events-none'}
-          md:hidden min-h-screen z-10
-  `}
+          absolute top-26 right-0 w-full bg-white shadow-lg
+          transition-all duration-700 ease-in-out origin-top transform
+          ${isMenuOpen ? 'opacity-100 scale-y-100' : 'opacity-0 scale-y-0 pointer-events-none'}
+          md:hidden z-10 min-h-screen
+        `}
       >
         <div className="px-4 py-3 space-y-4">
           {Object.entries(menuItems).map(([title, subItems]) => (
@@ -73,25 +67,37 @@ const Navbar = () => {
                 <span>{title}</span>
                 {subItems.length > 0 && (
                   <ChevronDown
-                    className={`transform transition-transform duration-200 ${
+                    className={`transform transition-transform duration-700 ease-in-out ${
                       expandedItems[title] ? 'rotate-180' : ''
                     }`}
                   />
                 )}
               </button>
-              {subItems.length > 0 && expandedItems[title] && (
+              <div
+                className={`
+                  overflow-hidden transition-all duration-700 ease-in-out
+                  ${expandedItems[title] ? 'max-h-48 opacity-100' : 'max-h-0 opacity-0'}
+                `}
+              >
                 <div className="pl-4 py-2 space-y-2">
                   {subItems.map((item) => (
-                    <div key={item} className="text-gray-600">
+                    <div 
+                      key={item} 
+                      className={`
+                        text-gray-600 transition-all duration-700 ease-in-out transform
+                        ${expandedItems[title] ? 'translate-y-0 opacity-100' : '-translate-y-4 opacity-0'}
+                      `}
+                    >
                       {item}
                     </div>
                   ))}
                 </div>
-              )}
+              </div>
             </div>
           ))}
         </div>
       </div>
+      
     </nav>
   )
 }

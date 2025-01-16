@@ -1,19 +1,15 @@
 import { ReduxProvider } from '@/store/provider'
-import { Geist, Geist_Mono } from 'next/font/google'
+import { Kanit } from 'next/font/google'
 
 import Navbar from '@/components/Navbar'
-
-import './globals.css'
 import Footer from '@/components/Footer'
 
-const geistSans = Geist({
-  variable: '--font-geist-sans',
-  subsets: ['latin'],
-})
+import './globals.css'
 
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
+const kanit = Kanit({
+  variable: '--font-kanit',
   subsets: ['latin'],
+  weight: ['400', '700'],
 })
 
 export const metadata = {
@@ -25,11 +21,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${kanit.variable} antialiased`}
       >
         <ReduxProvider>
           <Navbar />
-            {children}
+          {children}
           <Footer />
         </ReduxProvider>
       </body>

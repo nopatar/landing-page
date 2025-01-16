@@ -8,21 +8,21 @@ const Footer = () => {
         {/* Main Title */}
         <div className="mb-6">
           <h2 className="text-orange-500 text-2xl font-bold mb-2">
-            ร่วมสร้างและผลักดัน
+            Lorem, ipsum.
           </h2>
           <h3 className="text-orange-500 text-xl mb-2">
-            ระบบการชาร์จยานยนต์ไฟฟ้า
+            Lorem ipsum dolor sit.
           </h3>
           <h3 className="text-orange-500 text-xl">
-            โปคับอีโวลท์
+            Lorem, ipsum dolor.
           </h3>
         </div>
 
         {/* Description */}
         <p className="text-gray-400 mb-6">
-          ติดตามข่าวสารเกี่ยวกับธุรกิจยานยนต์ไฟฟ้าและ
+          Lorem ipsum dolor sit amet consectetur.
           <br />
-          อัพเดทโปรโมชั่นของเรา
+          Lorem ipsum dolor sit.
         </p>
 
         {/* Logo */}
@@ -32,32 +32,32 @@ const Footer = () => {
 
         {/* Contact Info */}
         <div className="flex flex-wrap gap-4 mb-6 text-gray-400">
-          <p>Tel: 02-114-7343</p>
-          <p>Email: info@evolt.co.th</p>
-          <p>Line: @evolt</p>
+          <p>Tel: 02-000</p>
+          <p>Email: info@mock.co.th</p>
+          <p>Line: @mock</p>
         </div>
 
         {/* Navigation Links */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           <div>
-            <h4 className="font-bold mb-3">หน้าแรก</h4>
+            <h4 className="font-bold mb-3">Homepage</h4>
             <ul className="space-y-2">
-              <li><Link href="/services" className="text-gray-400 hover:text-orange-500">บริการของอีโวลท์</Link></li>
-              <li><Link href="/ev-users" className="text-gray-400 hover:text-orange-500">ผู้ใช้งานรถ EV</Link></li>
+              <li><Link href="/services" className="text-gray-400 hover:text-orange-500">servieces</Link></li>
+              <li><Link href="/ev-users" className="text-gray-400 hover:text-orange-500">products</Link></li>
             </ul>
           </div>
           <div>
-            <h4 className="font-bold mb-3">เกี่ยวกับอีโวลท์</h4>
+            <h4 className="font-bold mb-3">About us</h4>
             <ul className="space-y-2">
-              <li><Link href="/about" className="text-gray-400 hover:text-orange-500">เกี่ยวกับอีโวลท์</Link></li>
-              <li><Link href="/team" className="text-gray-400 hover:text-orange-500">ร่วมงานกับเรา</Link></li>
-              <li><Link href="/news" className="text-gray-400 hover:text-orange-500">ข่าวสาร</Link></li>
+              <li><Link href="/about" className="text-gray-400 hover:text-orange-500">lorem</Link></li>
+              <li><Link href="/team" className="text-gray-400 hover:text-orange-500">lorem</Link></li>
+              <li><Link href="/news" className="text-gray-400 hover:text-orange-500">lorem</Link></li>
             </ul>
           </div>
           <div>
-            <h4 className="font-bold mb-3">ติดต่อเรา</h4>
+            <h4 className="font-bold mb-3">Contact</h4>
             <ul className="space-y-2">
-              <li><Link href="/contact" className="text-gray-400 hover:text-orange-500">ค้นหาสถานี</Link></li>
+              <li><Link href="/contact" className="text-gray-400 hover:text-orange-500">lorem</Link></li>
             </ul>
           </div>
         </div>
@@ -95,7 +95,7 @@ const Footer = () => {
 
         {/* Copyright */}
         <div className="text-center text-gray-400 text-sm">
-          <p>Evolt © 2025 Designed by Asia Media Studio</p>
+          <p>Mock © 2025 </p>
           <Link href="/privacy-policy" className="text-gray-400 hover:text-orange-500">
             Privacy Policy
           </Link>
