@@ -1,46 +1,25 @@
-.productsSection {
-  @apply py-20 bg-gray-50;
+.productsContainer {
+  @apply container mx-auto px-4 py-12;
 }
-
-.container {
-  @apply max-w-6xl mx-auto px-4;
-}
-
 .title {
-  @apply text-4xl font-bold text-center mb-12;
+  @apply text-4xl font-bold mb-8;
 }
-
 .grids {
-  @apply grid grid-cols-2 gap-8;
+  @apply grid grid-cols-2 lg:grid-cols-4 gap-8;
 }
 
-.card {
-  @apply bg-white rounded-lg shadow-md hover:shadow-lg overflow-hidden
-         transform transition-transform duration-300
+.productImage {
+  @apply w-full h-full object-cover transition-all duration-500 cursor-pointer;
 }
 
 .imageWrapper {
-  @apply relative h-64 overflow-hidden;
+  @apply relative w-full h-[300px] overflow-hidden;
 }
 
-.image {
-  @apply object-cover w-full h-full;
+.productInfo {
+  @apply p-4;
 }
 
-.content {
-  @apply p-6;
-}
-
-.productTitle {
-  @apply text-2xl font-bold mb-3;
-}
-
-.description {
-  @apply text-gray-600 mb-4;
-}
-
-.button {
-  @apply px-6 py-2 bg-primary text-white rounded
-         hover:bg-primary/90 transition-colors
-         inline-block;
+.card {
+  @apply bg-white rounded-lg transition-shadow;
 }

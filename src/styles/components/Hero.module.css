@@ -20,11 +20,11 @@
 }
 
 .overlay {
-  @apply hero-overlay bg-opacity-50;
+  @apply hero-overlay bg-opacity-80;
 }
 
 .content {
-  @apply hero-content text-neutral-content flex flex-col items-center justify-start pt-32;
+  @apply hero-content text-neutral-content flex flex-col items-center justify-start ;
   width: 100%;
 }
 
@@ -42,11 +42,12 @@
 }
 
 .button {
-  @apply btn btn-primary;
+  @apply px-6 py-2 border-solid border-2 border-gray-500 text-white hover:text-neutral rounded
+  hover:bg-white transition-colors;
 }
 
 .scrollButton {
-  @apply -translate-x-1/2
-         text-white hover:text-primary transition-colors
+  @apply -translate-x-1/2 pt-20
+         text-white hover:text-orange-500 transition-colors 
          animate-bounce cursor-pointer;
 }

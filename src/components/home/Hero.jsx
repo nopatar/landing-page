@@ -29,7 +29,7 @@ const Hero = ({ scrollToProducts }) => {
         className={styles.heroBackground}
         style={{
           backgroundImage:
-            'url(https://fastly.picsum.photos/id/605/2513/1670.jpg?hmac=2r8cThRG-HoN42A9oCO19I1RC78posajQDKgVbNqy1s)',
+            'url(https://static-assets.tesla.com/configurator/compositor?context=design_studio_2&options=$MTY40,$PPSW,$WY19P,$IPB5&view=RIMCLOSEUP&model=my&size=1920&bkba_opt=1&crop=0,0,80,0&overlay=0&)',
         }}
       >
         <div className={styles.overlay}></div>
@@ -47,7 +47,7 @@ const Hero = ({ scrollToProducts }) => {
             className={styles.scrollButton}
             aria-label="Scroll to products"
           >
-            <ChevronDown size={32} />
+            <ChevronDown size={38} />
           </button>
         </div>
       </div>

@@ -1,50 +1,66 @@
-'use client'
+import { forwardRef, useState } from 'react'
 import Image from 'next/image'
+
 import styles from '@/styles/components/Products.module.css'
 
-const Products = () => {
-  const products = [
+const Products = forwardRef((props, ref) => {
+  const [hoveredImage, setHoveredImage] = useState({})
+  const items = [
     {
       id: 1,
-      title: 'Product One',
-      description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, quisquam.',
-      image: '/next.svg'
+      title: 'Roof Rack',
+      price: '18000',
+      images: [
+        'https://digitalassets-shop.tesla.com/image/upload/f_auto,q_auto/v1/content/dam/tesla/CAR_ACCESSORIES/MODEL_Y/EXTERIOR/1518236-00-A_0_2000.jpg',
+        'https://digitalassets-shop.tesla.com/image/upload/f_auto,q_auto/v1/content/dam/tesla/CAR_ACCESSORIES/MODEL_Y/EXTERIOR/1518236-00-A_1_2000.jpg'
+      ]
     },
     {
       id: 2,
-      title: 'Product Two', 
-      description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, quisquam.',
-      image: '/next.svg'
-    }
+      title: 'Car Cover',
+      price: '18000',
+      images: [
+        'https://digitalassets-shop.tesla.com/image/upload/f_auto,q_auto/v1/content/dam/tesla/studio/CAR_ACCESSORIES/MODEL_Y/EXTERIOR/1553614-00-A_2_2000.jpg',
+        'https://digitalassets-shop.tesla.com/image/upload/f_auto,q_auto/v1/content/dam/tesla/studio/CAR_ACCESSORIES/MODEL_Y/EXTERIOR/1553614-00-A_1_2000.jpg'
+      ]
+    },
   ]
 
   return (
-    <section className={styles.productsSection}>
-      <div className={styles.container}>
-        {/* <h2 className={styles.title}>Our Products</h2> */}
-        <div className={styles.grids}>
-          {products.map((product) => (
-            <div key={product.id} className={styles.card}>
-              <div className={styles.imageWrapper}>
-                <Image
-                  src={product.image}
-                  alt={product.title}
-                  width={500}
-                  height={300}
-                  className={styles.image}
-                />
-              </div>
-              <div className={styles.content}>
-                <h3 className={styles.productTitle}>{product.title}</h3>
-                <p className={styles.description}>{product.description}</p>
-                <button className={styles.button}>Learn More</button>
-              </div>
-            </div>
-          ))}
-        </div>
+    <div ref={ref} className={styles.productsContainer}>
+      <div className={styles.title}>
+        <h2 className='hover:text-orange-500 cursor-pointer'>SHOP</h2>
+        <p className='font-light text-2xl'>Accessories</p>
       </div>
-    </section>
-  )
-}
 
+      <div className={styles.grids}>
+        {items.map((item) => (
+          <div className={styles.card} key={item.id}>
+            <div 
+              className={styles.imageWrapper}
+              onMouseEnter={() => setHoveredImage(prev => ({...prev, [item.id]: true}))}
+              onMouseLeave={() => setHoveredImage(prev => ({...prev, [item.id]: false}))}
+            >
+              <Image
+                src={hoveredImage[item.id] ? item.images[1] : item.images[0]}
+                alt={item.title}
+                width={500}
+                height={300}
+                className={styles.productImage}
+                priority
+              />
+            </div>
+            <div className={styles.productInfo}>
+              <h3 className='hover:text-orange-500 cursor-pointer'>{item.title}</h3>
+              <p>฿{Number(item.price).toLocaleString()}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+    </div>
+  )
+})
+
+Products.displayName = 'Products'
 export default Products

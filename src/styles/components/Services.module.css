@@ -1,0 +1,46 @@
+.servicesSection {
+  @apply bg-gray-100;
+}
+
+.servicesContainer {
+  @apply container mx-auto px-4 py-12;
+}
+
+.title {
+  @apply text-3xl font-bold mb-8;
+}
+
+.grids {
+  @apply grid grid-cols-1 lg:grid-cols-2 gap-8;
+}
+
+.card {
+  @apply bg-white shadow-md hover:shadow-lg overflow-hidden
+         transform transition-transform duration-300
+}
+
+.imageWrapper {
+  @apply relative h-64 overflow-hidden;
+}
+
+.image {
+  @apply object-cover w-full h-full hover:scale-110 cursor-pointer;
+}
+
+.content {
+  @apply p-6;
+}
+
+.servicesTitle {
+  @apply text-2xl font-medium mb-3 hover:text-orange-500 cursor-pointer;
+}
+
+.description {
+  @apply text-gray-600 mb-4;
+}
+
+.button {
+  @apply px-6 py-2 border-solid border-2 border-gray-500 text-neutral hover:text-white rounded
+         hover:bg-slate-700 transition-colors
+         inline-block;
+}

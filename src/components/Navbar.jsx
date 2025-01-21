@@ -2,7 +2,7 @@
 import Link from 'next/link'
 import React, { useState } from 'react'
 
-import { ChevronDown } from 'lucide-react'
+import { ChevronDown, CircleSlash2 } from 'lucide-react'
 
 import AnimatedMenuIcon from '@/components/animated/AnimatedMenuIcon'
 const Navbar = () => {
@@ -18,16 +18,14 @@ const Navbar = () => {
   }
 
   const menuItems = {
-    HOME: [],
+    SHOP: [],
     SERVICES: [
-      'TURNKEY SOLUTION',
-      'SUPPLY',
-      'PLATFORM & APPLICATION',
-      'AFTER SALES SERVICE',
+      'INTERIOR',
+      'REPAIR',
     ],
-    'ABOUT MOCK': [
-      'CAREER',
-      'NEWS'
+    'ABOUT': [
+      'COMPANY',
+      'JOIN TEAM'
     ],
     CONTACT: [],
   }
@@ -40,7 +38,10 @@ const Navbar = () => {
           <div className="flex-shrink-0">
             <Link href="/">
               {/* <img src="https://placehold.co/150x60" alt="logo" /> */}
-              <p className='text-5xl uppercase'>mock</p>
+              <div className='flex justify-center items-center p-2 rounded-lg hover:bg-gray-100'>
+                <span className='text-4xl font-extrabold'>Aut</span>
+                <CircleSlash2 className='' size={32} />
+              </div>
             </Link>
           </div>
           <AnimatedMenuIcon isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} />
@@ -51,7 +52,7 @@ const Navbar = () => {
       {/* Mobile menu Expanded*/}
       <div
         className={`
-          absolute top-26 right-0 w-full bg-white shadow-lg
+          absolute top-26 right-0 w-full bg-white shadow-lg px-12
           transition-all duration-700 ease-in-out origin-top transform
           ${isMenuOpen ? 'opacity-100 scale-y-100' : 'opacity-0 scale-y-0 pointer-events-none'}
           md:hidden z-10 min-h-screen

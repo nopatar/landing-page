@@ -1,8 +1,9 @@
 'use client'
 import { useRef } from 'react'
 import Hero from '@/components/home/Hero'
+import Services from '@/components/home/Services'
+import Partner from '@/components/home/Partner'
 import Products from '@/components/home/Products'
-import ClientCorousel from '@/components/home/ClientCorousel'
 
 import '@/styles/animations.css'
 
@@ -10,16 +11,15 @@ export default function Home() {
   const productsRef = useRef(null)
 
   const scrollToProducts = () => {
-    productsRef.current?.scrollIntoView({ behavior: 'smooth' })
+    productsRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })
   }
 
   return (
     <main>
       <Hero scrollToProducts={scrollToProducts} />
-        <div ref={productsRef}>
-          <Products />
-        </div>
-        <ClientCorousel />
+        <Products  ref={productsRef}/>
+        <Services />
+        <Partner />
     </main>
   )
 }
