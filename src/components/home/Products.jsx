@@ -1,35 +1,18 @@
 import { forwardRef, useState } from 'react'
+import Link from 'next/link'
 import Image from 'next/image'
 
 import styles from '@/styles/components/Products.module.css'
 
-const Products = forwardRef((props, ref) => {
+const Products = forwardRef(({ items }, ref) => {
   const [hoveredImage, setHoveredImage] = useState({})
-  const items = [
-    {
-      id: 1,
-      title: 'Roof Rack',
-      price: '18000',
-      images: [
-        'https://digitalassets-shop.tesla.com/image/upload/f_auto,q_auto/v1/content/dam/tesla/CAR_ACCESSORIES/MODEL_Y/EXTERIOR/1518236-00-A_0_2000.jpg',
-        'https://digitalassets-shop.tesla.com/image/upload/f_auto,q_auto/v1/content/dam/tesla/CAR_ACCESSORIES/MODEL_Y/EXTERIOR/1518236-00-A_1_2000.jpg'
-      ]
-    },
-    {
-      id: 2,
-      title: 'Car Cover',
-      price: '18000',
-      images: [
-        'https://digitalassets-shop.tesla.com/image/upload/f_auto,q_auto/v1/content/dam/tesla/studio/CAR_ACCESSORIES/MODEL_Y/EXTERIOR/1553614-00-A_2_2000.jpg',
-        'https://digitalassets-shop.tesla.com/image/upload/f_auto,q_auto/v1/content/dam/tesla/studio/CAR_ACCESSORIES/MODEL_Y/EXTERIOR/1553614-00-A_1_2000.jpg'
-      ]
-    },
-  ]
 
   return (
     <div ref={ref} className={styles.productsContainer}>
       <div className={styles.title}>
-        <h2 className='hover:text-orange-500 cursor-pointer'>SHOP</h2>
+        <Link href='/shop'>
+          <h2 className='hover:text-orange-500 cursor-pointer'>SHOP</h2>
+        </Link>
         <p className='font-light text-2xl'>Accessories</p>
       </div>
 

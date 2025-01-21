@@ -1,7 +1,10 @@
 import { ReduxProvider } from '@/store/provider'
 import { Kanit } from 'next/font/google'
 
-import './globals.css'
+import Navbar from '@/components/Navbar'
+import Footer from '@/components/Footer'
+
+import '../globals.css'
 
 const kanit = Kanit({
   variable: '--font-kanit',
@@ -22,7 +25,9 @@ export default function RootLayout({ children }) {
         className={`${kanit.variable} antialiased`}
       >
         <ReduxProvider>
+          <Navbar />
           {children}
+          <Footer />
         </ReduxProvider>
       </body>
     </html>

@@ -1,0 +1,48 @@
+.swiperContainer {
+  @apply mx-auto md:px-6 w-full xl:w-[60%] space-y-6;
+}
+
+.swiper {
+  @apply w-full h-96;
+}
+
+.imageContainer {
+  @apply relative w-full h-full;
+}
+
+.image {
+  @apply w-full h-full object-cover;
+}
+
+.overlay {
+  @apply absolute inset-0 bg-black/50;
+}
+
+.swiper :global(.swiper-pagination) {
+  @apply flex justify-center items-center gap-2;
+}
+
+.swiper :global(.swiper-pagination-bullet) {
+  @apply w-[100px] h-[6px] bg-white/30 opacity-100 rounded-sm relative overflow-hidden m-0;
+}
+.swiper :global(.swiper-pagination-bullet::before) {
+  content: "";
+  @apply absolute top-0 left-0 w-full h-full bg-white translate-x-[-100%];
+}
+
+.swiper :global(.swiper-pagination-bullet-active::before) {
+  @apply animate-[progress_4s_cubic-bezier(0.3,0,0.3,1)_forwards];
+}
+
+.swiperPaused :global(.swiper-pagination-bullet-active::before) {
+  @apply [animation-play-state:paused];
+}
+
+@keyframes progress {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}

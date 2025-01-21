@@ -1,8 +1,15 @@
+'use client'
+import { useSelector } from 'react-redux'
 
-const page = () => {
+import Swiper from '@/components/shop/Swiper'
+import Products from '@/components/home/Products'
+
+export default function ShopPage() {
+  const products = useSelector((state) => state.product.list)
   return (
-    <div>SHOP Page</div>
+    <main>
+      <Swiper />
+      <Products items={products}/>
+    </main>
   )
 }
-
-export default page

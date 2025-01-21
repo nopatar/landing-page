@@ -6,7 +6,7 @@ const Footer = () => {
   return (
     <footer className="bg-neutral text-white py-8 px-4">
       <div className="max-w-6xl mx-auto">
-        <div className="flex items-center mb-6">
+        <div className="flex items-center mb-6 gap-1">
           <span className="text-4xl font-extrabold">Aut</span>
           <CircleSlash2 className="" size={32} />
         </div>
