@@ -44,6 +44,33 @@ const Navbar = () => {
               </div>
             </Link>
           </div>
+          {/* Desktop Menu */}
+      <div className="hidden md:flex items-center space-x-8">
+        {Object.entries(menuItems).map(([title, subItems]) => (
+          <div key={title} className="relative group z-10">
+            <button className="py-2 hover:text-orange-500 transition-colors">
+              {title}
+              {subItems.length > 0 && (
+                <ChevronDown className="inline-block ml-1 w-4 h-4 transform group-hover:rotate-180 transition-transform duration-200" />
+              )}
+            </button>
+            {subItems.length > 0 && (
+              <div className="absolute top-full left-0 w-48 bg-white shadow-lg rounded-lg py-2 hidden group-hover:block">
+                {subItems.map((item) => (
+                  <Link
+                    key={item}
+                    href="#"
+                    className="block px-4 py-2 hover:bg-gray-100 hover:text-orange-500 transition-colors"
+                  >
+                    {item}
+                  </Link>
+                ))}
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+
           <AnimatedMenuIcon isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} />
 
         </div>
