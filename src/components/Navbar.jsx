@@ -47,7 +47,7 @@ const Navbar = () => {
   return (
     <nav
       className={`
-      fixed w-full bg-white shadow-lg transition-transform duration-300
+      fixed w-full bg-white transition-transform duration-300
       ${scrollDirection === 'down' ? '-translate-y-full' : 'translate-y-0'}
       md:relative md:translate-y-0 z-10
     `}
@@ -55,10 +55,10 @@ const Navbar = () => {
       <div className="max-w-6xl mx-auto p-4">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <div className="flex-shrink-0 hover:text-orange-500">
+          <div className="flex flex-1 gap-1">
             <Link href="/">
               {/* <img src="https://placehold.co/150x60" alt="logo" /> */}
-              <div className="flex justify-center items-center p-2 rounded-lg hover:bg-gray-100 gap-1">
+              <div className="flex justify-center items-center p-2 rounded-lg text-orange-500 hover:text-slate-500 hover:bg-gray-100 gap-1">
                 <span className="text-4xl font-extrabold">Aut</span>
                 <CircleSlash2 className="" size={32} />
               </div>

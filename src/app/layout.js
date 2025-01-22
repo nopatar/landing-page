@@ -1,6 +1,5 @@
 import { ReduxProvider } from '@/store/provider'
 import { Kanit } from 'next/font/google'
-
 import './globals.css'
 
 const kanit = Kanit({

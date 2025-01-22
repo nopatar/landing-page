@@ -1,10 +1,9 @@
-import { forwardRef, useState } from 'react'
 import Link from 'next/link'
+import { forwardRef, useState } from 'react'
 import Image from 'next/image'
-
 import styles from '@/styles/components/Products.module.css'
 
-const Products = forwardRef(({ items }, ref) => {
+const Products = forwardRef(({ items, onAddToCart }, ref) => {
   const [hoveredImage, setHoveredImage] = useState({})
 
   return (
@@ -34,16 +33,20 @@ const Products = forwardRef(({ items }, ref) => {
               />
             </div>
             <div className={styles.productInfo}>
-              <h3 className='hover:text-orange-500 cursor-pointer'>{item.title}</h3>
+              <h3>{item.title}</h3>
               <p>฿{Number(item.price).toLocaleString()}</p>
+              <button
+                onClick={() => onAddToCart(item)}
+                className="mt-2 bg-orange-500 text-white py-2 px-4 rounded hover:bg-orange-600"
+              >
+                Add to Cart
+              </button>
             </div>
           </div>
         ))}
       </div>
-
     </div>
   )
 })
 
-Products.displayName = 'Products'
 export default Products
